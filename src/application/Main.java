@@ -7,6 +7,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
 import javafx.stage.Stage;
+import model.dao.DaoFactory;
+import model.dao.DepartmentDao;
+import model.dao.impl.DepartmentDaoJDBC;
 
 public class Main extends Application {
 
@@ -38,5 +41,7 @@ public class Main extends Application {
 	
 	public static void main(String[] args) {
 		launch(args);
+		DepartmentDao dao = DaoFactory.createDepartmentDao();
+		System.out.println(dao.findById(2));
 	}
 }
